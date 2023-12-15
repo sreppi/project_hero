@@ -87,10 +87,13 @@ boolean hoverOnGameStartButton = false;
 float startButtonRColor = 232;
 float startButtonGColor = 189;
 float startButtonBColor = 80;
+PFont font1;
 
 void setup() {
   size (400, 550);
   frameRate(60);
+  font1 = loadFont("Constantia-48.vlw");
+
   // Makes a grid for the inventory UI.
   cell = new InventoryCell[cols][rows];
   for (int i = 0; i < cols; i++) {
@@ -288,7 +291,7 @@ void draw() {
         }
       }
     }
-    
+
     // Inventory Section
 
     fill(#5b382d);
@@ -391,7 +394,13 @@ void draw() {
     strokeWeight(4);
     stroke(#EBFAFC);
     rect(200, 330, 180, 40);
+
+    fill(#FFFFFF);
+    textFont(font1, 18);
+    textAlign(CENTER);
     text("GAME START", 200, 337.5);
+
+    text("AUTO HERO", 200, 175);
 
     if (clickOnGameStartButton == true) { // Start the game
       gameState = GameState.values()[(gameState.ordinal() + 1) %2];
