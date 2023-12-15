@@ -182,6 +182,10 @@ void draw() {
         }
       }
     }
+    
+    fill(#5F6179, 125);
+    noStroke();
+    ellipse(playerX, playerY + 17, 40, 10);
 
     frameCount2 += 1;
 
@@ -393,14 +397,22 @@ void draw() {
     fill(startButtonRColor, startButtonGColor, startButtonBColor);
     strokeWeight(4);
     stroke(#EBFAFC);
-    rect(200, 330, 180, 40);
+    rect(200, 400, 180, 40);
 
     fill(#FFFFFF);
     textFont(font1, 18);
     textAlign(CENTER);
-    text("GAME START", 200, 337.5);
+    text("GAME START", 200, 407.5);
 
-    text("AUTO HERO", 200, 175);
+    textFont(font1, 30);
+    text("AUTO HERO", 200, 300);
+
+    textFont(font1, 20);
+    text("An inventory", 200, 330);
+    text("management game.", 200, 350);
+
+    textFont(font1, 15);
+    text("Space = Attack", 200, 445);
 
     if (clickOnGameStartButton == true) { // Start the game
       gameState = GameState.values()[(gameState.ordinal() + 1) %2];
@@ -864,7 +876,7 @@ void switchGameState() {
 //Buttons
 //Start Button
 void mouseOnGameStartButton() {
-  if (mouseX>=110 && mouseX<=290 && mouseY>=310 && mouseY<=350) {
+  if (mouseX>=110 && mouseX<=290 && mouseY>=380 && mouseY<=420) {
     hoverOnGameStartButton = true;
   } else {
     hoverOnGameStartButton = false;
